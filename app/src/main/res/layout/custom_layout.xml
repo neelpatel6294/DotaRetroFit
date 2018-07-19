@@ -12,9 +12,10 @@
 
         <ImageView
             android:id="@+id/image"
+            android:layout_marginTop="10dp"
             android:layout_width="160dp"
             android:layout_height="160dp"
-            android:src="@drawable/ic_launcher_foreground" />
+            android:src="@drawable/ic_launcher_background" />
 
 
         <TextView
@@ -22,10 +23,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="60dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="40dp"
             android:layout_toRightOf="@+id/image"
             android:fontFamily="monospace"
-            android:textColor="#263238"
+            android:textColor="#212121"
             android:textSize="20sp"
             android:textStyle="bold"
             tools:text="name" />
@@ -40,7 +41,7 @@
             android:layout_marginTop="8dp"
             android:layout_toRightOf="@+id/image"
             android:fontFamily="monospace"
-            android:textColor="#263238"
+            android:textColor="#212121"
             android:textSize="20sp"
             android:textStyle="bold"
             tools:text="attribute" />
@@ -54,7 +55,7 @@
             android:layout_marginTop="8dp"
             android:layout_toRightOf="@+id/image"
             android:fontFamily="monospace"
-            android:textColor="#263238"
+            android:textColor="#212121"
             android:textSize="20sp"
             android:textStyle="bold"
             tools:text="attackType" />
@@ -64,5 +65,5 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_below="@id/relative"
-        android:background="#263238" />
+        android:background="#BDBDBD" />
 </android.support.v7.widget.CardView>
