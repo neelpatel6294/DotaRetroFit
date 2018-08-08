@@ -11,7 +11,6 @@ import android.widget.TextView;
 
 import com.example.patel.dotaretrofit.Model.Heroes;
 import com.example.patel.dotaretrofit.R;
-import com.squareup.picasso.OkHttp3Downloader;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
