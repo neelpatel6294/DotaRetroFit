@@ -47,12 +47,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
         viewHolder.attribute.setText(item.getAttribute());
         viewHolder.attackType.setText(item.getAttackType());
 
-//        Picasso.Builder builder = new Picasso.Builder(context);
-//        builder.downloader(new OkHttp3Downloader(context));
-//        builder.build().load(heroData.get(position).getImage())
-//                .placeholder((R.drawable.ic_launcher_background))
-//                .error(R.drawable.ic_launcher_background)
-//                .into(viewHolder.mImage);
     }
 
     @Override

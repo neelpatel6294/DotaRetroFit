@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-
         mViewModel = ViewModelProviders.of(this).get(HeroViewModel.class);
         mViewModel.mLiveData().observe(this, new Observer<List<Heroes>>() {
             @Override
@@ -37,12 +36,13 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
-        private void generateData(List<Heroes> data) {
-            recyclerView = findViewById(R.id.customRecyclerView);
-            adapter = new CustomAdapter(data, this);
-            RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MainActivity.this);
-            recyclerView.setLayoutManager(layoutManager);
-            recyclerView.setHasFixedSize(true);
-            recyclerView.setAdapter(adapter);
-        }
+
+    private void generateData(List<Heroes> data) {
+        recyclerView = findViewById(R.id.customRecyclerView);
+        adapter = new CustomAdapter(data, this);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MainActivity.this);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setAdapter(adapter);
+    }
 }
