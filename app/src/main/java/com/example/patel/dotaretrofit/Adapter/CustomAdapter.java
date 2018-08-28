@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.patel.dotaretrofit.MainActivity;
 import com.example.patel.dotaretrofit.Model.Heroes;
 import com.example.patel.dotaretrofit.R;
 import com.squareup.picasso.Picasso;
@@ -19,12 +20,17 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
 
     private List<Heroes> heroData;
     private Context context;
+    final private ListItemClickListener mOnClickListener;
 
-    public CustomAdapter(List<Heroes> heroData, Context context) {
-        this.heroData = heroData;
-        this.context = context;
+    public interface ListItemClickListener {
+
+        void onListItemClick(Heroes movie);
     }
-
+    public CustomAdapter(MainActivity mainActivity, List<Heroes> heroData, ListItemClickListener listItemClickListener) {
+        this.heroData = heroData;
+//        this.context = context;
+        mOnClickListener = listItemClickListener;
+    }
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int ViewType) {
@@ -55,7 +61,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
     }
 
 
-    class ViewHolder extends RecyclerView.ViewHolder {
+    class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         ImageView mImage;
         TextView name, attribute, attackType;
@@ -68,6 +74,11 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
             attribute = itemView.findViewById(R.id.attribute);
             attackType = itemView.findViewById(R.id.attackType);
 
+
+        }
+
+        @Override
+        public void onClick(View view) {
 
         }
     }
