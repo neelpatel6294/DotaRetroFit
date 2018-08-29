@@ -19,18 +19,19 @@ import java.util.List;
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder> {
 
     private List<Heroes> heroData;
-    private Context context;
+    Context context;
     final private ListItemClickListener mOnClickListener;
 
     public interface ListItemClickListener {
 
         void onListItemClick(Heroes movie);
     }
-    public CustomAdapter(MainActivity mainActivity, List<Heroes> heroData, ListItemClickListener listItemClickListener) {
+    public CustomAdapter(MainActivity mainActivity,List<Heroes> heroData, ListItemClickListener listItemClickListener) {
         this.heroData = heroData;
 //        this.context = context;
         mOnClickListener = listItemClickListener;
     }
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int ViewType) {
@@ -48,7 +49,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
         Picasso.get().load("https://api.opendota.com"
                 + item.getImage()).into(viewHolder.mImage);
 
-
+        viewHolder.itemView.setTag(item.getId());
         viewHolder.name.setText(item.getName());
         viewHolder.attribute.setText(item.getAttribute());
         viewHolder.attackType.setText(item.getAttackType());
@@ -73,12 +74,15 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
             name = itemView.findViewById(R.id.name);
             attribute = itemView.findViewById(R.id.attribute);
             attackType = itemView.findViewById(R.id.attackType);
-
+            itemView.setOnClickListener(this);
 
         }
 
         @Override
         public void onClick(View view) {
+            int adapterPosition = getAdapterPosition();
+            Heroes result = heroData.get(adapterPosition);
+            mOnClickListener.onListItemClick(result);
 
         }
     }
