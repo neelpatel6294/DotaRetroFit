@@ -49,10 +49,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
         Picasso.get().load("https://api.opendota.com"
                 + item.getImage()).into(viewHolder.mImage);
 
-        viewHolder.itemView.setTag(item.getId());
-        viewHolder.name.setText(item.getName());
-        viewHolder.attribute.setText(item.getAttribute());
-        viewHolder.attackType.setText(item.getAttackType());
+
 
     }
 
@@ -65,15 +62,11 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
     class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         ImageView mImage;
-        TextView name, attribute, attackType;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             mImage = itemView.findViewById(R.id.image);
-            name = itemView.findViewById(R.id.name);
-            attribute = itemView.findViewById(R.id.attribute);
-            attackType = itemView.findViewById(R.id.attackType);
             itemView.setOnClickListener(this);
 
         }
